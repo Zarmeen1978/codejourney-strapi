@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_name_infors",
+  "info": {
+    "displayName": "infor",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "input": {
+      "type": "text"
+    },
+    "output": {
+      "type": "string"
+    }
+  }
+}

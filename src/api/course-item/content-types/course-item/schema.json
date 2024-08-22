@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "course_items",
+  "info": {
+    "singularName": "course-item",
+    "pluralName": "course-items",
+    "displayName": "courseItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

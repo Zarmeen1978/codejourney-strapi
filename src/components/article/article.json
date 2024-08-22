@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_article_articles",
+  "info": {
+    "displayName": "article"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_name_names",
+  "info": {
+    "displayName": "name"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "example": {
+      "type": "richtext"
+    }
+  }
+}

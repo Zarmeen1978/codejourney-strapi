@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "video_topics",
+  "info": {
+    "singularName": "video-topic",
+    "pluralName": "video-topics",
+    "displayName": "VideoTopic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
