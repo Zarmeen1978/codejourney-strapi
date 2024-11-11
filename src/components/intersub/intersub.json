@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_intersub_intersubs",
+  "info": {
+    "displayName": "intersub"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    }
+  }
+}

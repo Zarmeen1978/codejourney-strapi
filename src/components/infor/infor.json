@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_infor_infors",
+  "info": {
+    "displayName": "infor",
+    "icon": "strikeThrough"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

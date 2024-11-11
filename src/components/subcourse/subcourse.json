@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_subcourse_subcourses",
+  "info": {
+    "displayName": "subcourse",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "input": {
+      "type": "text"
+    },
+    "output": {
+      "type": "string"
+    }
+  }
+}

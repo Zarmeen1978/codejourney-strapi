@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_subcomponent_components",
+  "info": {
+    "displayName": "component"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "name": {
+      "displayName": "intersub",
+      "type": "component",
+      "repeatable": true,
+      "component": "intersub.intersub"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

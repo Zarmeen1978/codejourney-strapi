@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sub_submodules",
+  "info": {
+    "displayName": "submodule",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "name": {
+      "type": "string"
+    },
+    "input": {
+      "type": "text"
+    },
+    "output": {
+      "type": "string"
+    }
+  }
+}
