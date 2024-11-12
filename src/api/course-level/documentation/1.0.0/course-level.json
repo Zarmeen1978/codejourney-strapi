@@ -1,5 +1,5 @@
 {
-  "/courses": {
+  "/course-levels": {
     "get": {
       "responses": {
         "200": {
@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseListResponse"
+                "$ref": "#/components/schemas/CourseLevelListResponse"
               }
             }
           }
@@ -64,7 +64,7 @@
         }
       },
       "tags": [
-        "Course"
+        "Course-level"
       ],
       "parameters": [
         {
@@ -170,7 +170,7 @@
           }
         }
       ],
-      "operationId": "get/courses"
+      "operationId": "get/course-levels"
     },
     "post": {
       "responses": {
@@ -179,7 +179,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseResponse"
+                "$ref": "#/components/schemas/CourseLevelResponse"
               }
             }
           }
@@ -236,23 +236,23 @@
         }
       },
       "tags": [
-        "Course"
+        "Course-level"
       ],
       "parameters": [],
-      "operationId": "post/courses",
+      "operationId": "post/course-levels",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CourseRequest"
+              "$ref": "#/components/schemas/CourseLevelRequest"
             }
           }
         }
       }
     }
   },
-  "/courses/{id}": {
+  "/course-levels/{id}": {
     "get": {
       "responses": {
         "200": {
@@ -260,7 +260,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseResponse"
+                "$ref": "#/components/schemas/CourseLevelResponse"
               }
             }
           }
@@ -317,7 +317,7 @@
         }
       },
       "tags": [
-        "Course"
+        "Course-level"
       ],
       "parameters": [
         {
@@ -331,7 +331,7 @@
           }
         }
       ],
-      "operationId": "get/courses/{id}"
+      "operationId": "get/course-levels/{id}"
     },
     "put": {
       "responses": {
@@ -340,7 +340,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseResponse"
+                "$ref": "#/components/schemas/CourseLevelResponse"
               }
             }
           }
@@ -397,7 +397,7 @@
         }
       },
       "tags": [
-        "Course"
+        "Course-level"
       ],
       "parameters": [
         {
@@ -411,13 +411,13 @@
           }
         }
       ],
-      "operationId": "put/courses/{id}",
+      "operationId": "put/course-levels/{id}",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CourseRequest"
+              "$ref": "#/components/schemas/CourseLevelRequest"
             }
           }
         }
@@ -488,7 +488,7 @@
         }
       },
       "tags": [
-        "Course"
+        "Course-level"
       ],
       "parameters": [
         {
@@ -502,10 +502,10 @@
           }
         }
       ],
-      "operationId": "delete/courses/{id}"
+      "operationId": "delete/course-levels/{id}"
     }
   },
-  "/courses/{id}/localizations": {
+  "/course-levels/{id}/localizations": {
     "post": {
       "responses": {
         "200": {
@@ -513,7 +513,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseLocalizationResponse"
+                "$ref": "#/components/schemas/CourseLevelLocalizationResponse"
               }
             }
           }
@@ -570,7 +570,7 @@
         }
       },
       "tags": [
-        "Course"
+        "Course-level"
       ],
       "parameters": [
         {
@@ -584,13 +584,13 @@
           }
         }
       ],
-      "operationId": "post/courses/{id}/localizations",
+      "operationId": "post/course-levels/{id}/localizations",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CourseLocalizationRequest"
+              "$ref": "#/components/schemas/CourseLevelLocalizationRequest"
             }
           }
         }
