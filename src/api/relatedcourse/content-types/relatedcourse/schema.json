@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "relatedcourses",
+  "info": {
+    "singularName": "relatedcourse",
+    "pluralName": "relatedcourses",
+    "displayName": "relatedcourse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "displayName": "component",
+      "type": "component",
+      "repeatable": true,
+      "component": "subcomponent.component"
+    }
+  }
+}

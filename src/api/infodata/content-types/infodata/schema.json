@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "courses",
+  "collectionName": "infodatas",
   "info": {
-    "singularName": "course",
-    "pluralName": "courses",
-    "displayName": "course",
+    "singularName": "infodata",
+    "pluralName": "infodatas",
+    "displayName": "infodata",
     "description": ""
   },
   "options": {
@@ -16,14 +16,6 @@
     }
   },
   "attributes": {
-    "name": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -40,19 +32,11 @@
         }
       }
     },
-    "description": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "example": {
-      "displayName": "topic",
+    "module": {
+      "displayName": "info",
       "type": "component",
-      "repeatable": true,
-      "component": "name.topic",
+      "repeatable": false,
+      "component": "info.info",
       "pluginOptions": {
         "i18n": {
           "localized": true

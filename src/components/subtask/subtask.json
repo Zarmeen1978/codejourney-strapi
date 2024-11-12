@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_subtask_subtasks",
+  "info": {
+    "displayName": "subtask",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "input": {
+      "type": "text"
+    },
+    "out": {
+      "type": "string"
+    },
+    "output": {
+      "type": "text"
+    }
+  }
+}

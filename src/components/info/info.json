@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_info_infos",
+  "info": {
+    "displayName": "info",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "displayName": "subtask",
+      "type": "component",
+      "repeatable": false,
+      "component": "subtask.subtask"
+    }
+  }
+}

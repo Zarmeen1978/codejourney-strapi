@@ -863,11 +863,36 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    description: Attribute.RichText;
-    example: Attribute.Component<'name.topic', true>;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    example: Attribute.Component<'name.topic', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -883,6 +908,12 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::course.course',
+      'oneToMany',
+      'api::course.course'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -914,6 +945,59 @@ export interface ApiCourseItemCourseItem extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiCourseLevelCourseLevel extends Schema.CollectionType {
+  collectionName: 'course_levels';
+  info: {
+    singularName: 'course-level';
+    pluralName: 'course-levels';
+    displayName: 'courseLevel ';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Attribute.Component<'course.subtask'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-level.course-level',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-level.course-level',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::course-level.course-level',
+      'oneToMany',
+      'api::course-level.course-level'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1005,6 +1089,59 @@ export interface ApiInfoInfo extends Schema.CollectionType {
   };
 }
 
+export interface ApiInfodataInfodata extends Schema.CollectionType {
+  collectionName: 'infodatas';
+  info: {
+    singularName: 'infodata';
+    pluralName: 'infodatas';
+    displayName: 'infodata';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    module: Attribute.Component<'info.info'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::infodata.infodata',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::infodata.infodata',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::infodata.infodata',
+      'oneToMany',
+      'api::infodata.infodata'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiInfosterInfoster extends Schema.CollectionType {
   collectionName: 'infosters';
   info: {
@@ -1029,6 +1166,37 @@ export interface ApiInfosterInfoster extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::infoster.infoster',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRelatedcourseRelatedcourse extends Schema.CollectionType {
+  collectionName: 'relatedcourses';
+  info: {
+    singularName: 'relatedcourse';
+    pluralName: 'relatedcourses';
+    displayName: 'relatedcourse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.Component<'subcomponent.component', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::relatedcourse.relatedcourse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::relatedcourse.relatedcourse',
       'oneToOne',
       'admin::user'
     > &
@@ -1155,10 +1323,13 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::course.course': ApiCourseCourse;
       'api::course-item.course-item': ApiCourseItemCourseItem;
+      'api::course-level.course-level': ApiCourseLevelCourseLevel;
       'api::course-list.course-list': ApiCourseListCourseList;
       'api::detail.detail': ApiDetailDetail;
       'api::info.info': ApiInfoInfo;
+      'api::infodata.infodata': ApiInfodataInfodata;
       'api::infoster.infoster': ApiInfosterInfoster;
+      'api::relatedcourse.relatedcourse': ApiRelatedcourseRelatedcourse;
       'api::slider.slider': ApiSliderSlider;
       'api::vide-course.vide-course': ApiVideCourseVideCourse;
       'api::video-topic.video-topic': ApiVideoTopicVideoTopic;
