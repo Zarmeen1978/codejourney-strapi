@@ -742,7 +742,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -771,6 +770,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    rank: Attribute.Enumeration<['Beginner', 'Intermediate', 'Expert']> &
+      Attribute.DefaultTo<'Beginner'>;
+    experience: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1173,6 +1175,136 @@ export interface ApiInfosterInfoster extends Schema.CollectionType {
   };
 }
 
+export interface ApiJavascriptcourseJavascriptcourse
+  extends Schema.CollectionType {
+  collectionName: 'javascriptcourses';
+  info: {
+    singularName: 'javascriptcourse';
+    pluralName: 'javascriptcourses';
+    displayName: 'Javascriptcourse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    example: Attribute.Component<'name.topic', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::javascriptcourse.javascriptcourse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::javascriptcourse.javascriptcourse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::javascriptcourse.javascriptcourse',
+      'oneToMany',
+      'api::javascriptcourse.javascriptcourse'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPythoncoursePythoncourse extends Schema.CollectionType {
+  collectionName: 'pythoncourses';
+  info: {
+    singularName: 'pythoncourse';
+    pluralName: 'pythoncourses';
+    displayName: 'pythoncourse';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    example: Attribute.Component<'name.topic', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pythoncourse.pythoncourse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pythoncourse.pythoncourse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::pythoncourse.pythoncourse',
+      'oneToMany',
+      'api::pythoncourse.pythoncourse'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiRelatedcourseRelatedcourse extends Schema.CollectionType {
   collectionName: 'relatedcourses';
   info: {
@@ -1329,6 +1461,8 @@ declare module '@strapi/types' {
       'api::info.info': ApiInfoInfo;
       'api::infodata.infodata': ApiInfodataInfodata;
       'api::infoster.infoster': ApiInfosterInfoster;
+      'api::javascriptcourse.javascriptcourse': ApiJavascriptcourseJavascriptcourse;
+      'api::pythoncourse.pythoncourse': ApiPythoncoursePythoncourse;
       'api::relatedcourse.relatedcourse': ApiRelatedcourseRelatedcourse;
       'api::slider.slider': ApiSliderSlider;
       'api::vide-course.vide-course': ApiVideCourseVideCourse;

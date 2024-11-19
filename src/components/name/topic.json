@@ -17,6 +17,9 @@
     },
     "output": {
       "type": "text"
+    },
+    "points": {
+      "type": "biginteger"
     }
   }
 }

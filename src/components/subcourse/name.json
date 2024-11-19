@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_subcourse_names",
+  "info": {
+    "displayName": "name"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    }
+  }
+}

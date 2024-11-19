@@ -37,6 +37,18 @@ export interface TextText extends Schema.Component {
   };
 }
 
+export interface TextModule extends Schema.Component {
+  collectionName: 'components_text_modules';
+  info: {
+    displayName: 'module';
+  };
+  attributes: {
+    description: Attribute.Blocks;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.Component<'subcourse.name'>;
+  };
+}
+
 export interface SubtaskSubtask extends Schema.Component {
   collectionName: 'components_subtask_subtasks';
   info: {
@@ -61,6 +73,18 @@ export interface SubcourseSubcourse extends Schema.Component {
     name: Attribute.String;
     description: Attribute.RichText;
     input: Attribute.Text;
+    output: Attribute.String;
+  };
+}
+
+export interface SubcourseName extends Schema.Component {
+  collectionName: 'components_subcourse_names';
+  info: {
+    displayName: 'name';
+  };
+  attributes: {
+    description: Attribute.Blocks;
+    input: Attribute.String;
     output: Attribute.String;
   };
 }
@@ -102,6 +126,7 @@ export interface NameTopic extends Schema.Component {
     description: Attribute.RichText;
     input: Attribute.Text;
     output: Attribute.Text;
+    points: Attribute.BigInteger;
   };
 }
 
@@ -198,8 +223,10 @@ declare module '@strapi/types' {
       'video.video-topic': VideoVideoTopic;
       'topic.topic': TopicTopic;
       'text.text': TextText;
+      'text.module': TextModule;
       'subtask.subtask': SubtaskSubtask;
       'subcourse.subcourse': SubcourseSubcourse;
+      'subcourse.name': SubcourseName;
       'subcomponent.component': SubcomponentComponent;
       'sub.submodule': SubSubmodule;
       'name.topic': NameTopic;
