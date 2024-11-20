@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_subcomponent_lessons",
+  "info": {
+    "displayName": "lessons"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

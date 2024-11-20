@@ -1037,6 +1037,71 @@ export interface ApiCourseListCourseList extends Schema.CollectionType {
   };
 }
 
+export interface ApiCoursesv1Coursesv1 extends Schema.CollectionType {
+  collectionName: 'coursesv1s';
+  info: {
+    singularName: 'coursesv1';
+    pluralName: 'coursesv1s';
+    displayName: 'coursesv1';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    modules: Attribute.Component<'subcourse.modules', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::coursesv1.coursesv1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::coursesv1.coursesv1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::coursesv1.coursesv1',
+      'oneToMany',
+      'api::coursesv1.coursesv1'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDetailDetail extends Schema.CollectionType {
   collectionName: 'details';
   info: {
@@ -1240,6 +1305,71 @@ export interface ApiJavascriptcourseJavascriptcourse
   };
 }
 
+export interface ApiJavascriptcoursev1Javascriptcoursev1
+  extends Schema.CollectionType {
+  collectionName: 'javascriptcoursev1s';
+  info: {
+    singularName: 'javascriptcoursev1';
+    pluralName: 'javascriptcoursev1s';
+    displayName: 'Javascriptcoursev1';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    modules: Attribute.Component<'subcourse.modules', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::javascriptcoursev1.javascriptcoursev1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::javascriptcoursev1.javascriptcoursev1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::javascriptcoursev1.javascriptcoursev1',
+      'oneToMany',
+      'api::javascriptcoursev1.javascriptcoursev1'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPythoncoursePythoncourse extends Schema.CollectionType {
   collectionName: 'pythoncourses';
   info: {
@@ -1300,6 +1430,70 @@ export interface ApiPythoncoursePythoncourse extends Schema.CollectionType {
       'api::pythoncourse.pythoncourse',
       'oneToMany',
       'api::pythoncourse.pythoncourse'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPythoncoursev1Pythoncoursev1 extends Schema.CollectionType {
+  collectionName: 'pythoncoursev1s';
+  info: {
+    singularName: 'pythoncoursev1';
+    pluralName: 'pythoncoursev1s';
+    displayName: 'pythoncoursev1';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    modules: Attribute.Component<'subcourse.modules', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pythoncoursev1.pythoncoursev1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pythoncoursev1.pythoncoursev1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::pythoncoursev1.pythoncoursev1',
+      'oneToMany',
+      'api::pythoncoursev1.pythoncoursev1'
     >;
     locale: Attribute.String;
   };
@@ -1457,12 +1651,15 @@ declare module '@strapi/types' {
       'api::course-item.course-item': ApiCourseItemCourseItem;
       'api::course-level.course-level': ApiCourseLevelCourseLevel;
       'api::course-list.course-list': ApiCourseListCourseList;
+      'api::coursesv1.coursesv1': ApiCoursesv1Coursesv1;
       'api::detail.detail': ApiDetailDetail;
       'api::info.info': ApiInfoInfo;
       'api::infodata.infodata': ApiInfodataInfodata;
       'api::infoster.infoster': ApiInfosterInfoster;
       'api::javascriptcourse.javascriptcourse': ApiJavascriptcourseJavascriptcourse;
+      'api::javascriptcoursev1.javascriptcoursev1': ApiJavascriptcoursev1Javascriptcoursev1;
       'api::pythoncourse.pythoncourse': ApiPythoncoursePythoncourse;
+      'api::pythoncoursev1.pythoncoursev1': ApiPythoncoursev1Pythoncoursev1;
       'api::relatedcourse.relatedcourse': ApiRelatedcourseRelatedcourse;
       'api::slider.slider': ApiSliderSlider;
       'api::vide-course.vide-course': ApiVideCourseVideCourse;

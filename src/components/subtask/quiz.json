@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_subtask_quizzes",
+  "info": {
+    "displayName": "quiz",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "option1": {
+      "type": "string"
+    },
+    "option2": {
+      "type": "string"
+    },
+    "option3": {
+      "type": "string"
+    },
+    "option4": {
+      "type": "string"
+    },
+    "correct": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "points": {
+      "type": "integer"
+    }
+  }
+}

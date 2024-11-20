@@ -63,6 +63,24 @@ export interface SubtaskSubtask extends Schema.Component {
   };
 }
 
+export interface SubtaskQuiz extends Schema.Component {
+  collectionName: 'components_subtask_quizzes';
+  info: {
+    displayName: 'quiz';
+    description: '';
+  };
+  attributes: {
+    question: Attribute.Text;
+    option1: Attribute.String;
+    option2: Attribute.String;
+    option3: Attribute.String;
+    option4: Attribute.String;
+    correct: Attribute.String;
+    order: Attribute.Integer;
+    points: Attribute.Integer;
+  };
+}
+
 export interface SubcourseSubcourse extends Schema.Component {
   collectionName: 'components_subcourse_subcourses';
   info: {
@@ -86,6 +104,35 @@ export interface SubcourseName extends Schema.Component {
     description: Attribute.Blocks;
     input: Attribute.String;
     output: Attribute.String;
+  };
+}
+
+export interface SubcourseModules extends Schema.Component {
+  collectionName: 'components_subcourse_modules';
+  info: {
+    displayName: 'modules';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    points: Attribute.Integer;
+    lessons: Attribute.Component<'subcomponent.lessons', true>;
+    quiz: Attribute.Component<'subtask.quiz', true>;
+    ytlink: Attribute.String;
+  };
+}
+
+export interface SubcomponentLessons extends Schema.Component {
+  collectionName: 'components_subcomponent_lessons';
+  info: {
+    displayName: 'lessons';
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.Text;
+    input: Attribute.String;
+    output: Attribute.String;
+    order: Attribute.Integer;
   };
 }
 
@@ -182,19 +229,6 @@ export interface InforInfor extends Schema.Component {
   };
 }
 
-export interface InfoInfo extends Schema.Component {
-  collectionName: 'components_info_infos';
-  info: {
-    displayName: 'info';
-    description: '';
-  };
-  attributes: {
-    description: Attribute.RichText;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    name: Attribute.Component<'subtask.subtask'>;
-  };
-}
-
 export interface CourseSubtask extends Schema.Component {
   collectionName: 'components_course_subtasks';
   info: {
@@ -205,6 +239,19 @@ export interface CourseSubtask extends Schema.Component {
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Attribute.RichText;
     name: Attribute.String;
+  };
+}
+
+export interface InfoInfo extends Schema.Component {
+  collectionName: 'components_info_infos';
+  info: {
+    displayName: 'info';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.RichText;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.Component<'subtask.subtask'>;
   };
 }
 
@@ -225,8 +272,11 @@ declare module '@strapi/types' {
       'text.text': TextText;
       'text.module': TextModule;
       'subtask.subtask': SubtaskSubtask;
+      'subtask.quiz': SubtaskQuiz;
       'subcourse.subcourse': SubcourseSubcourse;
       'subcourse.name': SubcourseName;
+      'subcourse.modules': SubcourseModules;
+      'subcomponent.lessons': SubcomponentLessons;
       'subcomponent.component': SubcomponentComponent;
       'sub.submodule': SubSubmodule;
       'name.topic': NameTopic;
@@ -234,8 +284,8 @@ declare module '@strapi/types' {
       'name.infor': NameInfor;
       'intersub.intersub': IntersubIntersub;
       'infor.infor': InforInfor;
-      'info.info': InfoInfo;
       'course.subtask': CourseSubtask;
+      'info.info': InfoInfo;
       'article.article': ArticleArticle;
     }
   }
