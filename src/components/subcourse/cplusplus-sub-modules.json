@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_subcourse_cplusplus_sub_modules",
+  "info": {
+    "displayName": "cplusplusSubModules"
+  },
+  "options": {},
+  "attributes": {
+    "subModuleid": {
+      "type": "integer"
+    }
+  }
+}

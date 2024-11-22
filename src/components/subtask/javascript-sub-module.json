@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_subtask_javascript_sub_modules",
+  "info": {
+    "displayName": "javascriptSubModule"
+  },
+  "options": {},
+  "attributes": {
+    "javascriptSubModuleId": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_course_cplusplus_modules",
+  "info": {
+    "displayName": "cplusplusModule"
+  },
+  "options": {},
+  "attributes": {
+    "cplusplusMainModuleId": {
+      "type": "integer"
+    },
+    "cplusplusSubModule": {
+      "displayName": "cplusplusSubModule",
+      "type": "component",
+      "repeatable": true,
+      "component": "sub.cplusplus-sub-module"
+    }
+  }
+}

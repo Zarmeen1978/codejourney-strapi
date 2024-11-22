@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_course_python_modules",
+  "info": {
+    "displayName": "pythonModule"
+  },
+  "options": {},
+  "attributes": {
+    "pythonMainModuleId": {
+      "type": "integer"
+    },
+    "pythonSubModule": {
+      "displayName": "pythonSubModule",
+      "type": "component",
+      "repeatable": true,
+      "component": "subtask.python-sub-module"
+    }
+  }
+}

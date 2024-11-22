@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_subcourse_javascript_sub_modules",
+  "info": {
+    "displayName": "javascriptSubModule"
+  },
+  "options": {},
+  "attributes": {
+    "subModuleid": {
+      "type": "integer"
+    }
+  }
+}

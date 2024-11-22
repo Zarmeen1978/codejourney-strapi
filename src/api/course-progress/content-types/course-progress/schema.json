@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_progresses",
+  "info": {
+    "singularName": "course-progress",
+    "pluralName": "course-progresses",
+    "displayName": "course-progress",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uid": {
+      "type": "integer"
+    },
+    "cplusplusMainModule": {
+      "displayName": "cplusplusModule",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.cplusplus-module"
+    },
+    "javascriptMainModule": {
+      "displayName": "javascriptModule",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.javascript-module"
+    },
+    "pythonMainModule": {
+      "displayName": "pythonModule",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.python-module"
+    }
+  }
+}

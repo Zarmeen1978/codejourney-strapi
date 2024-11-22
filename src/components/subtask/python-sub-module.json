@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_subtask_python_sub_modules",
+  "info": {
+    "displayName": "pythonSubModule"
+  },
+  "options": {},
+  "attributes": {
+    "pythonSubModuleId": {
+      "type": "integer"
+    }
+  }
+}

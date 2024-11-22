@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_course_javascript_modules",
+  "info": {
+    "displayName": "javascriptModule"
+  },
+  "options": {},
+  "attributes": {
+    "javascriptMainModuleId": {
+      "type": "integer"
+    },
+    "javascriptSubModule": {
+      "displayName": "javascriptSubModule",
+      "type": "component",
+      "repeatable": true,
+      "component": "subtask.javascript-sub-module"
+    }
+  }
+}

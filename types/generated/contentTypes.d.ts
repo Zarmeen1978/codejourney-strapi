@@ -1037,6 +1037,40 @@ export interface ApiCourseListCourseList extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourseProgressCourseProgress extends Schema.CollectionType {
+  collectionName: 'course_progresses';
+  info: {
+    singularName: 'course-progress';
+    pluralName: 'course-progresses';
+    displayName: 'course-progress';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    uid: Attribute.Integer;
+    cplusplusMainModule: Attribute.Component<'course.cplusplus-module', true>;
+    javascriptMainModule: Attribute.Component<'course.javascript-module', true>;
+    pythonMainModule: Attribute.Component<'course.python-module', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-progress.course-progress',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-progress.course-progress',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCoursesv1Coursesv1 extends Schema.CollectionType {
   collectionName: 'coursesv1s';
   info: {
@@ -1651,6 +1685,7 @@ declare module '@strapi/types' {
       'api::course-item.course-item': ApiCourseItemCourseItem;
       'api::course-level.course-level': ApiCourseLevelCourseLevel;
       'api::course-list.course-list': ApiCourseListCourseList;
+      'api::course-progress.course-progress': ApiCourseProgressCourseProgress;
       'api::coursesv1.coursesv1': ApiCoursesv1Coursesv1;
       'api::detail.detail': ApiDetailDetail;
       'api::info.info': ApiInfoInfo;

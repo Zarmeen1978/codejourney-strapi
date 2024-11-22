@@ -81,6 +81,26 @@ export interface SubtaskQuiz extends Schema.Component {
   };
 }
 
+export interface SubtaskPythonSubModule extends Schema.Component {
+  collectionName: 'components_subtask_python_sub_modules';
+  info: {
+    displayName: 'pythonSubModule';
+  };
+  attributes: {
+    pythonSubModuleId: Attribute.Integer;
+  };
+}
+
+export interface SubtaskJavascriptSubModule extends Schema.Component {
+  collectionName: 'components_subtask_javascript_sub_modules';
+  info: {
+    displayName: 'javascriptSubModule';
+  };
+  attributes: {
+    javascriptSubModuleId: Attribute.Integer;
+  };
+}
+
 export interface SubcourseSubcourse extends Schema.Component {
   collectionName: 'components_subcourse_subcourses';
   info: {
@@ -92,6 +112,16 @@ export interface SubcourseSubcourse extends Schema.Component {
     description: Attribute.RichText;
     input: Attribute.Text;
     output: Attribute.String;
+  };
+}
+
+export interface SubcoursePythonSubModule extends Schema.Component {
+  collectionName: 'components_subcourse_python_sub_modules';
+  info: {
+    displayName: 'pythonSubModule';
+  };
+  attributes: {
+    subModuleid: Attribute.Integer;
   };
 }
 
@@ -119,6 +149,26 @@ export interface SubcourseModules extends Schema.Component {
     lessons: Attribute.Component<'subcomponent.lessons', true>;
     quiz: Attribute.Component<'subtask.quiz', true>;
     ytlink: Attribute.String;
+  };
+}
+
+export interface SubcourseJavascriptSubModule extends Schema.Component {
+  collectionName: 'components_subcourse_javascript_sub_modules';
+  info: {
+    displayName: 'javascriptSubModule';
+  };
+  attributes: {
+    subModuleid: Attribute.Integer;
+  };
+}
+
+export interface SubcourseCplusplusSubModules extends Schema.Component {
+  collectionName: 'components_subcourse_cplusplus_sub_modules';
+  info: {
+    displayName: 'cplusplusSubModules';
+  };
+  attributes: {
+    subModuleid: Attribute.Integer;
   };
 }
 
@@ -159,6 +209,16 @@ export interface SubSubmodule extends Schema.Component {
     name: Attribute.String;
     input: Attribute.Text;
     output: Attribute.String;
+  };
+}
+
+export interface SubCplusplusSubModule extends Schema.Component {
+  collectionName: 'components_sub_cplusplus_sub_modules';
+  info: {
+    displayName: 'cplusplusSubModule';
+  };
+  attributes: {
+    cplusplusSubModuleId: Attribute.Integer;
   };
 }
 
@@ -229,6 +289,19 @@ export interface InforInfor extends Schema.Component {
   };
 }
 
+export interface InfoInfo extends Schema.Component {
+  collectionName: 'components_info_infos';
+  info: {
+    displayName: 'info';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.RichText;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.Component<'subtask.subtask'>;
+  };
+}
+
 export interface CourseSubtask extends Schema.Component {
   collectionName: 'components_course_subtasks';
   info: {
@@ -242,16 +315,47 @@ export interface CourseSubtask extends Schema.Component {
   };
 }
 
-export interface InfoInfo extends Schema.Component {
-  collectionName: 'components_info_infos';
+export interface CoursePythonModule extends Schema.Component {
+  collectionName: 'components_course_python_modules';
   info: {
-    displayName: 'info';
-    description: '';
+    displayName: 'pythonModule';
   };
   attributes: {
-    description: Attribute.RichText;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    name: Attribute.Component<'subtask.subtask'>;
+    pythonMainModuleId: Attribute.Integer;
+    pythonSubModule: Attribute.Component<'subtask.python-sub-module', true>;
+  };
+}
+
+export interface CourseJavascriptModule extends Schema.Component {
+  collectionName: 'components_course_javascript_modules';
+  info: {
+    displayName: 'javascriptModule';
+  };
+  attributes: {
+    javascriptMainModuleId: Attribute.Integer;
+    javascriptSubModule: Attribute.Component<
+      'subtask.javascript-sub-module',
+      true
+    >;
+  };
+}
+
+export interface CourseCplusplus extends Schema.Component {
+  collectionName: 'components_course_cpluspluses';
+  info: {
+    displayName: 'cplusplus';
+  };
+  attributes: {};
+}
+
+export interface CourseCplusplusModule extends Schema.Component {
+  collectionName: 'components_course_cplusplus_modules';
+  info: {
+    displayName: 'cplusplusModule';
+  };
+  attributes: {
+    cplusplusMainModuleId: Attribute.Integer;
+    cplusplusSubModule: Attribute.Component<'sub.cplusplus-sub-module', true>;
   };
 }
 
@@ -273,19 +377,29 @@ declare module '@strapi/types' {
       'text.module': TextModule;
       'subtask.subtask': SubtaskSubtask;
       'subtask.quiz': SubtaskQuiz;
+      'subtask.python-sub-module': SubtaskPythonSubModule;
+      'subtask.javascript-sub-module': SubtaskJavascriptSubModule;
       'subcourse.subcourse': SubcourseSubcourse;
+      'subcourse.python-sub-module': SubcoursePythonSubModule;
       'subcourse.name': SubcourseName;
       'subcourse.modules': SubcourseModules;
+      'subcourse.javascript-sub-module': SubcourseJavascriptSubModule;
+      'subcourse.cplusplus-sub-modules': SubcourseCplusplusSubModules;
       'subcomponent.lessons': SubcomponentLessons;
       'subcomponent.component': SubcomponentComponent;
       'sub.submodule': SubSubmodule;
+      'sub.cplusplus-sub-module': SubCplusplusSubModule;
       'name.topic': NameTopic;
       'name.name': NameName;
       'name.infor': NameInfor;
       'intersub.intersub': IntersubIntersub;
       'infor.infor': InforInfor;
-      'course.subtask': CourseSubtask;
       'info.info': InfoInfo;
+      'course.subtask': CourseSubtask;
+      'course.python-module': CoursePythonModule;
+      'course.javascript-module': CourseJavascriptModule;
+      'course.cplusplus': CourseCplusplus;
+      'course.cplusplus-module': CourseCplusplusModule;
       'article.article': ArticleArticle;
     }
   }
