@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profile_questions",
+  "info": {
+    "singularName": "profile-question",
+    "pluralName": "profile-questions",
+    "displayName": "profileQuestion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "option1": {
+      "type": "string"
+    },
+    "option2": {
+      "type": "string"
+    },
+    "option3": {
+      "type": "string"
+    },
+    "option4": {
+      "type": "string"
+    }
+  }
+}

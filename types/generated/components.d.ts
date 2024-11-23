@@ -12,6 +12,17 @@ export interface VideoVideoTopic extends Schema.Component {
   };
 }
 
+export interface UsersUsers extends Schema.Component {
+  collectionName: 'components_users_users';
+  info: {
+    displayName: 'users';
+  };
+  attributes: {
+    userid: Attribute.Integer;
+    isCorrect: Attribute.Boolean;
+  };
+}
+
 export interface TopicTopic extends Schema.Component {
   collectionName: 'components_topic_topics';
   info: {
@@ -372,6 +383,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'video.video-topic': VideoVideoTopic;
+      'users.users': UsersUsers;
       'topic.topic': TopicTopic;
       'text.text': TextText;
       'text.module': TextModule;

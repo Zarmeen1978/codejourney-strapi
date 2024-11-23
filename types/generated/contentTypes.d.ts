@@ -773,6 +773,21 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     rank: Attribute.Enumeration<['Beginner', 'Intermediate', 'Expert']> &
       Attribute.DefaultTo<'Beginner'>;
     experience: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    ratedSkill: Attribute.Enumeration<['Beginner', 'Intermediate', 'Expert']>;
+    purposeOfPlaying: Attribute.Enumeration<
+      [
+        'CareerDevelopment',
+        'PersonalGrowth',
+        'AcademicRequirements',
+        'ExploringNewTechnology'
+      ]
+    >;
+    timeDuration: Attribute.Enumeration<
+      ['Daily', 'fewTimesWeekly', 'Occasionally', 'Rarely']
+    >;
+    eduBackground: Attribute.Enumeration<
+      ['ComputerScience', 'Medical', 'Engineering', 'Arts', 'Others']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1404,6 +1419,41 @@ export interface ApiJavascriptcoursev1Javascriptcoursev1
   };
 }
 
+export interface ApiProfileQuestionProfileQuestion
+  extends Schema.CollectionType {
+  collectionName: 'profile_questions';
+  info: {
+    singularName: 'profile-question';
+    pluralName: 'profile-questions';
+    displayName: 'profileQuestion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.Text;
+    option1: Attribute.String;
+    option2: Attribute.String;
+    option3: Attribute.String;
+    option4: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profile-question.profile-question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profile-question.profile-question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPythoncoursePythoncourse extends Schema.CollectionType {
   collectionName: 'pythoncourses';
   info: {
@@ -1662,6 +1712,43 @@ export interface ApiVideoTopicVideoTopic extends Schema.SingleType {
   };
 }
 
+export interface ApiWelcomeQuizWelcomeQuiz extends Schema.CollectionType {
+  collectionName: 'welcome_quizs';
+  info: {
+    singularName: 'welcome-quiz';
+    pluralName: 'welcome-quizs';
+    displayName: 'welcomeQuiz';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.Text;
+    option1: Attribute.String;
+    option2: Attribute.String;
+    option3: Attribute.String;
+    option4: Attribute.String;
+    correct: Attribute.String;
+    difficulty: Attribute.Enumeration<['normal', 'advanced']>;
+    users: Attribute.Component<'users.users', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::welcome-quiz.welcome-quiz',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::welcome-quiz.welcome-quiz',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1693,12 +1780,14 @@ declare module '@strapi/types' {
       'api::infoster.infoster': ApiInfosterInfoster;
       'api::javascriptcourse.javascriptcourse': ApiJavascriptcourseJavascriptcourse;
       'api::javascriptcoursev1.javascriptcoursev1': ApiJavascriptcoursev1Javascriptcoursev1;
+      'api::profile-question.profile-question': ApiProfileQuestionProfileQuestion;
       'api::pythoncourse.pythoncourse': ApiPythoncoursePythoncourse;
       'api::pythoncoursev1.pythoncoursev1': ApiPythoncoursev1Pythoncoursev1;
       'api::relatedcourse.relatedcourse': ApiRelatedcourseRelatedcourse;
       'api::slider.slider': ApiSliderSlider;
       'api::vide-course.vide-course': ApiVideCourseVideCourse;
       'api::video-topic.video-topic': ApiVideoTopicVideoTopic;
+      'api::welcome-quiz.welcome-quiz': ApiWelcomeQuizWelcomeQuiz;
     }
   }
 }

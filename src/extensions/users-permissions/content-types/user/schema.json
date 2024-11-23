@@ -77,6 +77,42 @@
     "experience": {
       "type": "biginteger",
       "default": "0"
+    },
+    "ratedSkill": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Expert"
+      ]
+    },
+    "purposeOfPlaying": {
+      "type": "enumeration",
+      "enum": [
+        "CareerDevelopment",
+        "PersonalGrowth",
+        "AcademicRequirements",
+        "ExploringNewTechnology"
+      ]
+    },
+    "timeDuration": {
+      "type": "enumeration",
+      "enum": [
+        "Daily",
+        "fewTimesWeekly",
+        "Occasionally",
+        "Rarely"
+      ]
+    },
+    "eduBackground": {
+      "type": "enumeration",
+      "enum": [
+        "ComputerScience",
+        "Medical",
+        "Engineering",
+        "Arts",
+        "Others"
+      ]
     }
   }
 }

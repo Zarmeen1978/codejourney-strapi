@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_users_users",
+  "info": {
+    "displayName": "users"
+  },
+  "options": {},
+  "attributes": {
+    "userid": {
+      "type": "integer"
+    },
+    "isCorrect": {
+      "type": "boolean"
+    }
+  }
+}
