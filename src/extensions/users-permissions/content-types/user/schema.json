@@ -100,7 +100,7 @@
       "type": "enumeration",
       "enum": [
         "Daily",
-        "fewTimesWeekly",
+        "FewTimesWeekly",
         "Occasionally",
         "Rarely"
       ]

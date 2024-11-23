@@ -785,7 +785,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       ]
     >;
     timeDuration: Attribute.Enumeration<
-      ['Daily', 'fewTimesWeekly', 'Occasionally', 'Rarely']
+      ['Daily', 'FewTimesWeekly', 'Occasionally', 'Rarely']
     >;
     eduBackground: Attribute.Enumeration<
       ['ComputerScience', 'Medical', 'Engineering', 'Others']

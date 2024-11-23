@@ -123,8 +123,6 @@ module.exports = {
         }
       );
 
-      console.log(profileQuestion);
-
       if (!profileQuestion) {
         return ctx.notFound("No matching question type found.");
       }
@@ -137,7 +135,13 @@ module.exports = {
         profileQuestion.option4,
       ];
 
-      if (!options.includes(option)) {
+      const formattedOptions = options.map((option) =>
+        option.replace(/\s+/g, "")
+      );
+
+      if (!formattedOptions.includes(option)) {
+        console.log(options);
+
         return ctx.badRequest("Invalid option for the given question type.");
       }
 
