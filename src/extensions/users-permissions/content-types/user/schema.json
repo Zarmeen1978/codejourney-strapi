@@ -83,6 +83,7 @@
       "enum": [
         "Beginner",
         "Intermediate",
+        "Advanced",
         "Expert"
       ]
     },
@@ -110,7 +111,6 @@
         "ComputerScience",
         "Medical",
         "Engineering",
-        "Arts",
         "Others"
       ]
     }
