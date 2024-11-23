@@ -773,7 +773,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     rank: Attribute.Enumeration<['Beginner', 'Intermediate', 'Expert']> &
       Attribute.DefaultTo<'Beginner'>;
     experience: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
-    ratedSkill: Attribute.Enumeration<['Beginner', 'Intermediate', 'Expert']>;
+    ratedSkill: Attribute.Enumeration<
+      ['Beginner', 'Intermediate', 'Advanced', 'Expert']
+    >;
     purposeOfPlaying: Attribute.Enumeration<
       [
         'CareerDevelopment',
@@ -1720,6 +1722,7 @@ export interface ApiWelcomeQuizWelcomeQuiz extends Schema.CollectionType {
     singularName: 'welcome-quiz';
     pluralName: 'welcome-quizs';
     displayName: 'welcomeQuiz';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1733,6 +1736,7 @@ export interface ApiWelcomeQuizWelcomeQuiz extends Schema.CollectionType {
     correct: Attribute.String;
     difficulty: Attribute.Enumeration<['normal', 'advanced']>;
     users: Attribute.Component<'users.users', true>;
+    subject: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
