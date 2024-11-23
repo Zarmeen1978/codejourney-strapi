@@ -106,4 +106,71 @@ module.exports = {
       );
     }
   },
+
+  async setUserSkill(ctx) {
+    try {
+      const { option, type } = ctx.request.body;
+
+      if (!option || !type) {
+        return ctx.badRequest("Option and type are required.");
+      }
+
+      // Fetch the profile question with the given type
+      const [profileQuestion] = await strapi.entityService.findMany(
+        "api::profile-question.profile-question",
+        {
+          filters: { type: { $eq: type } },
+        }
+      );
+
+      console.log(profileQuestion);
+
+      if (!profileQuestion) {
+        return ctx.notFound("No matching question type found.");
+      }
+
+      // Verify if the option exists in the fetched profile question
+      const options = [
+        profileQuestion.option1,
+        profileQuestion.option2,
+        profileQuestion.option3,
+        profileQuestion.option4,
+      ];
+
+      if (!options.includes(option)) {
+        return ctx.badRequest("Invalid option for the given question type.");
+      }
+
+      // Get the authenticated user
+      const userId = ctx.state.user?.id;
+      console.log(userId);
+
+      if (!userId) {
+        return ctx.unauthorized(
+          "You must be logged in to perform this action."
+        );
+      }
+
+      // Update the user's ratedSkill field
+      const updatedUser = await strapi.entityService.update(
+        "plugin::users-permissions.user",
+        userId,
+        {
+          data: {
+            [type]: option, // Update the field with the selected option
+          },
+        }
+      );
+
+      return ctx.send({
+        message: "User skill updated successfully.",
+        data: updatedUser,
+      });
+    } catch (err) {
+      console.error("Error in setUserSkill:", err);
+      return ctx.internalServerError(
+        "An error occurred while updating the skill."
+      );
+    }
+  },
 };

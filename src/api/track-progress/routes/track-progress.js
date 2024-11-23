@@ -11,5 +11,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: "POST",
+      path: "/set-user-skill",
+      handler: "track-progress.setUserSkill",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
